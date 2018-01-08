@@ -11,7 +11,7 @@ RUN apk upgrade && \
       bash \
       nodejs-npm \
       gcc \
-      g+ \
+      g++ \
       yarn \
       python2 \
       linux-headers \
