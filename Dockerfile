@@ -6,25 +6,16 @@ ENV NGINX_VERSION nginx-1.13.5
 
 RUN apk upgrade && \
       apk update && \
-      apk add --no-cache \
+      apk add --no-cache --virtual .build-deps \
       openssl-dev \
-      bash \
       nodejs-npm \
       gcc \
-      g++ \
       yarn \
-      python2 \
       linux-headers \
-      binutils-gold \
       gnupg \
-      libstdc++ \
       pcre-dev \
-      zlib-dev \
       wget \
       build-base && \
-      python -m ensurepip && \
-      rm -r /usr/lib/python*/ensurepip && \
-      pip install --upgrade pip setuptools && \
       mkdir -p /tmp/src && \
       cd /tmp/src && \
       wget http://nginx.org/download/${NGINX_VERSION}.tar.gz && \
